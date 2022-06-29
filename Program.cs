@@ -29,13 +29,16 @@ string[] InputArray()
     {
         NextElementMessage(i + 1);
 
-        Array.Resize(ref input, i + 1);
-
-        input[i] = GetNextElement();
+        string NextElement = GetNextElement();
     
-        if(input[i] == "")
+        if(NextElement == "")
         {
             getNext = false;
+        }
+        else
+        {
+            Array.Resize(ref input, i + 1);
+            input[i] = NextElement;
         }
 
         i = i + 1;
@@ -45,6 +48,23 @@ string[] InputArray()
     return input;
 }
 
+int getSize(string[] input, int elementLength)
+{
+    int size = 0;
+
+    for(int i = 0; i < input.Length; i++)
+    {
+        if(input[i].Length <= elementLength)
+        {
+            size++;
+        }
+    }
+
+    return size;
+}
+
 Console.WriteLine("Введите исходный массив строк поэлементно. Для выхода оставьте строку ввода пустой и нажмите 'Enter'.");
 string[] inputArray = InputArray();
 Console.WriteLine("Ввод завершен!");
+
+Console.WriteLine($"{getSize(inputArray, 3)}");
