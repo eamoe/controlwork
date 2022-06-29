@@ -81,6 +81,24 @@ string[] FillOutputArray(string[] input, int elementLength)
     return output;
 }
 
+void PrintArray(string[] array)
+{
+    Console.Write("[");
+
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(i == array.Length - 1)
+        {
+            Console.Write($"\"{array[i]}\"");
+        }
+        else
+        {
+            Console.Write($"\"{array[i]}\", ");
+        }
+    }
+    Console.WriteLine("]");
+}
+
 Console.WriteLine("Введите исходный массив строк поэлементно. Для выхода оставьте строку ввода пустой и нажмите 'Enter'.");
 string[] inputArray = InputArray();
 Console.WriteLine("Ввод завершен!");
@@ -88,7 +106,10 @@ Console.WriteLine("Ввод завершен!");
 int maxElementLength = 3;
 string[] outputArray = FillOutputArray(inputArray, maxElementLength);
 
-for(int i = 0; i < outputArray.Length; i++)
-{
-    Console.WriteLine($"{outputArray[i]}");
-}
+Console.Clear();
+
+Console.Write("Исходный массив:");
+PrintArray(inputArray);
+
+Console.Write("Итоговый массив:");
+PrintArray(outputArray);
