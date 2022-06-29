@@ -63,8 +63,32 @@ int getSize(string[] input, int elementLength)
     return size;
 }
 
+string[] FillOutputArray(string[] input, int elementLength)
+{
+    string[] output = new string[getSize(input, elementLength)];
+
+    int j = 0;
+
+    for(int i = 0; i < input.Length; i++)
+    {
+        if(input[i].Length <= elementLength)
+        {
+            output[j] = input[i];
+            j = j + 1;
+        }
+    }
+
+    return output;
+}
+
 Console.WriteLine("Введите исходный массив строк поэлементно. Для выхода оставьте строку ввода пустой и нажмите 'Enter'.");
 string[] inputArray = InputArray();
 Console.WriteLine("Ввод завершен!");
 
-Console.WriteLine($"{getSize(inputArray, 3)}");
+int maxElementLength = 3;
+string[] outputArray = FillOutputArray(inputArray, maxElementLength);
+
+for(int i = 0; i < outputArray.Length; i++)
+{
+    Console.WriteLine($"{outputArray[i]}");
+}
