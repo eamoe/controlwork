@@ -101,9 +101,10 @@ void PrintArray(string[] array)
 
 Console.WriteLine("Введите исходный массив строк поэлементно. Для выхода оставьте строку ввода пустой и нажмите 'Enter'.");
 string[] inputArray = InputArray();
-Console.WriteLine("Ввод завершен!");
 
-int maxElementLength = 3;
+Console.Write("Введите максимально допустимую длину строки: ");
+int maxElementLength = Convert.ToInt32(Console.ReadLine());
+
 string[] outputArray = FillOutputArray(inputArray, maxElementLength);
 
 Console.Clear();
