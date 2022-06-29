@@ -48,24 +48,24 @@ string[] InputArray()
     return input;
 }
 
-int getSize(string[] input, int elementLength)
+int countElements(string[] input, int elementLength)
 {
-    int size = 0;
+    int count = 0;
 
     for(int i = 0; i < input.Length; i++)
     {
         if(input[i].Length <= elementLength)
         {
-            size++;
+            count++;
         }
     }
 
-    return size;
+    return count;
 }
 
 string[] FillOutputArray(string[] input, int elementLength)
 {
-    string[] output = new string[getSize(input, elementLength)];
+    string[] output = new string[countElements(input, elementLength)];
 
     int j = 0;
 
@@ -87,13 +87,11 @@ void PrintArray(string[] array)
 
     for(int i = 0; i < array.Length; i++)
     {
-        if(i == array.Length - 1)
+        Console.Write($"\"{array[i]}\"");
+        
+        if(i != array.Length - 1)
         {
-            Console.Write($"\"{array[i]}\"");
-        }
-        else
-        {
-            Console.Write($"\"{array[i]}\", ");
+            Console.Write(", ");   
         }
     }
     Console.WriteLine("]");
